@@ -1,0 +1,207 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --radius: 0.5rem;
+  
+  /* Main Colors - Based on provided color palette */
+  --primary: 217 67% 59%;        /* #4A90E2 - Blue */
+  --primary-foreground: 0 0% 100%;
+  --secondary: 165 68% 60%;      /* #50E3C2 - Teal */
+  --secondary-foreground: 0 0% 0%;
+  --accent: 27 91% 65%;          /* #F6AD55 - Orange */
+  --accent-foreground: 0 0% 0%;
+  
+  /* System Colors */
+  --success: 142 72% 29%;
+  --success-foreground: 210 40% 98%;
+  --success-muted: 142 72% 90%;
+  
+  --warning: 38 92% 50%;
+  --warning-foreground: 48 96% 98%;
+  --warning-muted: 38 92% 90%;
+  
+  --error: 0 84% 60%;            /* #E53E3E - Red */
+  --error-foreground: 210 40% 98%;
+  --error-muted: 0 84% 90%;
+  
+  --info: 185 100% 50%;
+  --info-foreground: 0 0% 0%;
+  --info-muted: 185 100% 90%;
+  
+  /* Surface Colors */
+  --surface: 220 14% 96%;        /* #F5F7FA - Light Gray */
+  --surface-foreground: 218 23% 23%;  /* #2D3748 - Dark Gray */
+  --surface-muted: 220 14% 92%;
+  
+  --background: 220 14% 96%;     /* #F5F7FA - Light Gray */
+  --foreground: 218 23% 23%;     /* #2D3748 - Dark Gray */
+  
+  --card: 0 0% 100%;
+  --card-foreground: 218 23% 23%;  /* #2D3748 - Dark Gray */
+  
+  --popover: 0 0% 100%;
+  --popover-foreground: 218 23% 23%;  /* #2D3748 - Dark Gray */
+  
+  --muted: 220 14% 92%;
+  --muted-foreground: 218 23% 45%;
+  
+  /* Color Shades */
+  --primary-50: 217 100% 97%;
+  --primary-100: 217 100% 94%;
+  --primary-200: 217 95% 85%;
+  --primary-300: 217 90% 75%;
+  --primary-400: 217 80% 65%;
+  --primary-500: 217 67% 59%;    /* #4A90E2 - Base Blue */
+  --primary-600: 217 65% 50%;
+  --primary-700: 217 70% 40%;
+  --primary-800: 217 75% 30%;
+  --primary-900: 217 80% 20%;
+  
+  --secondary-50: 165 100% 95%;
+  --secondary-100: 165 100% 90%;
+  --secondary-200: 165 95% 80%;
+  --secondary-300: 165 90% 70%;
+  --secondary-400: 165 80% 65%;
+  --secondary-500: 165 68% 60%;  /* #50E3C2 - Base Teal */
+  --secondary-600: 165 65% 50%;
+  --secondary-700: 165 70% 40%;
+  --secondary-800: 165 75% 30%;
+  --secondary-900: 165 80% 20%;
+  
+  --accent-50: 27 100% 97%;
+  --accent-100: 27 100% 94%;
+  --accent-200: 27 95% 85%;
+  --accent-300: 27 90% 75%;
+  --accent-400: 27 85% 70%;
+  --accent-500: 27 91% 65%;      /* #F6AD55 - Base Orange */
+  --accent-600: 27 85% 55%;
+  --accent-700: 27 80% 45%;
+  --accent-800: 27 75% 35%;
+  --accent-900: 27 70% 25%;
+  
+  /* System Variables */
+  --border: 220 14% 90%;
+  --input: var(--border);
+  --ring: var(--primary);
+}
+
+.dark {
+  --background: 218 35% 10%;
+  --foreground: 220 14% 95%;
+  
+  --card: 218 35% 12%;
+  --card-foreground: 220 14% 95%;
+  
+  --popover: 218 35% 12%;
+  --popover-foreground: 220 14% 95%;
+  
+  --primary: 217 67% 65%;        /* Lighter blue for dark mode */
+  --primary-foreground: 0 0% 0%;
+  
+  --secondary: 165 68% 65%;      /* Lighter teal for dark mode */
+  --secondary-foreground: 0 0% 0%;
+  
+  --muted: 218 25% 20%;
+  --muted-foreground: 215 30% 70%;
+  
+  --accent: 27 91% 70%;          /* Lighter orange for dark mode */
+  --accent-foreground: 0 0% 0%;
+  
+  --border: 218 25% 25%;
+  --input: 218 25% 25%;
+  --ring: 217 67% 65%;
+  
+  /* Dark Mode System Colors */
+  --success: 142 72% 50%;
+  --warning: 38 92% 60%;
+  --error: 0 84% 70%;
+  --info: 185 100% 60%;
+  
+  --surface: 218 35% 12%;
+  --surface-foreground: 220 14% 95%;
+  --surface-muted: 218 25% 20%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer components {
+  /* Task Item Styles */
+  .task-item {
+    @apply flex items-center gap-3 p-3 rounded-md bg-card text-card-foreground border border-border transition-all duration-200;
+  }
+  
+  .task-item:hover {
+    @apply shadow-sm border-primary/20;
+  }
+  
+  /* Button Styles */
+  .btn-primary {
+    @apply px-4 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary-600 transition-colors;
+  }
+  
+  .btn-secondary {
+    @apply px-4 py-2 bg-secondary text-secondary-foreground rounded-md hover:bg-secondary-600 transition-colors;
+  }
+  
+  .btn-outline {
+    @apply px-4 py-2 border border-input bg-background hover:bg-muted rounded-md transition-colors;
+  }
+  
+  /* Filter Tab Styles */
+  .filter-tab {
+    @apply px-3 py-1.5 text-sm font-medium rounded-md transition-colors;
+  }
+  
+  .filter-tab-active {
+    @apply bg-primary/10 text-primary;
+  }
+  
+  /* Input Field */
+  .task-input {
+    @apply w-full p-3 rounded-md border border-input bg-background focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2;
+  }
+  
+  /* Card Styles */
+  .app-card {
+    @apply bg-card text-card-foreground rounded-lg border border-border p-4 shadow-sm;
+  }
+  
+  /* Neumorphic Elements (subtle) */
+  .neumorphic {
+    @apply bg-surface shadow-[5px_5px_10px_rgba(0,0,0,0.05),-5px_-5px_10px_rgba(255,255,255,0.8)] dark:shadow-[5px_5px_10px_rgba(0,0,0,0.2),-5px_-5px_10px_rgba(255,255,255,0.05)];
+  }
+  
+  /* Empty State */
+  .empty-state {
+    @apply flex flex-col items-center justify-center py-12 text-center text-muted-foreground;
+  }
+}
+
+/* Custom Animations */
+.fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.slide-in {
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from { transform: translateY(10px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
